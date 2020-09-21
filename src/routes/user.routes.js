@@ -35,8 +35,8 @@ user.post('/googleUser', async (request, response) => {
             imageUrl
         })
         return response.json(user)
-    }else{
-        return response.status(400).json({error: "User already exists"})
+    }else{        
+        return response.json(userExist)
     }
 })
 
