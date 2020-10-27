@@ -58,7 +58,7 @@ debits.get('/total/:id', async(request, response) => {
 debits.post('/create/:id', async(request, response) => {
     const {id} = request.params    
     const user = await User.findById(id)
-    const userID = user._id           
+    const userID = user._id               
     try {
         let {value, name, type, parcel, who, status, debitEmail} = request.body
         console.log(debitEmail)        
@@ -85,7 +85,7 @@ debits.post('/create/:id', async(request, response) => {
           
           const mailOptions = {
             from: 'photoshopgm82@gmail.com',
-            // to: `${debitEmail}`,
+            to: `${debitEmail}`,
             to: `photoshopgm82@gmail.com, ${debitEmail}`,
             subject: 'Pay-debits',
             text: `Olá ${who}, seu débito referente a ${name} no valor de R$${value} com ${user.name} foi registrado.`
